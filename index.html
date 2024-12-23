@@ -41,6 +41,20 @@
                 transform: translateX(20px);
             }
         }
+         .santa {
+        position: absolute;
+        bottom: 50px;
+        animation: moveSanta 10s linear infinite;
+    }
+
+    @keyframes moveSanta {
+        0% {
+            left: -150px;
+        }
+        100% {
+            left: 100vw;
+        }
+    }
     </style>
 </head>
 <body>
