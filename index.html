@@ -76,21 +76,11 @@
             50% { opacity: 1; }
         }
 
-        
-
         .deer {
-        position: absolute;
-        top: 5px; /* Place l'image en haut */
-        right: 10px; /* Place l'image à droite */
-        width: 150px; /* Taille agrandie */
-    }
-        /* Image au centre */
-        .center-image {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
+            top: 5px; /* Place l'image en haut */
+            right: 10px; /* Place l'image à droite */
+            width: 150px; /* Taille agrandie */
         }
 
         /* Image à gauche */
@@ -101,7 +91,102 @@
             transform: translateY(-50%);
             width: 150px;
         }
-        
+
+        .tooltip {
+            position: absolute;
+            top: 45%;
+            left: 200px;
+            transform: translateY(-80%);
+            width: 150px;
+            background-color:white;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px white;
+        }
+         .tooltap {
+            position: absolute;
+            top: 10%;
+            left: 30px;
+            transform: translateY(-100%);
+            width: 300px;
+            background-color:white;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px white;
+            padding : 10px;
+            font-size : 17px;
+        }
+
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            cursor: pointer; 
+        }
+
+        /* Vidéo centrée et responsive */
+#video {
+    display: block;
+    margin: 20px auto; /* Centre la vidéo horizontalement */
+    max-width: 100%; /* Rend la vidéo responsive pour s'adapter à la taille de l'écran */
+    height: auto; /* Conserve le ratio d'aspect de la vidéo */
+    border: 2px solid #ccc; /* Ajoute une bordure esthétique */
+    border-radius: 10px; /* Coins arrondis pour un meilleur design */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ajoute une ombre pour un effet de profondeur */
+    background-color: black; /* Ajoute un fond noir autour de la vidéo */
+    padding: 5px; /* Ajoute un espace entre la vidéo et la bordure */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation sur le hover */
+}
+
+/* Effet au survol (hover) */
+#video:hover {
+    transform: scale(1.05); /* Zoom léger sur la vidéo */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Accentuation de l'ombre */
+}
+/* Image de fin (masquée par défaut) */
+        #end-image {
+            display: none; /* Masquée au début */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999; /* S'affiche au-dessus de tout */
+            background: url('fin.jpg') no-repeat center center/cover; /* Image en plein écran */
+        }
+
+      
+
+       .marquee {
+        position: fixed; /* Pour placer le texte au bas de la page */
+        bottom: 0; /* Aligne le texte en bas */
+        width: 100%; /* Occupe toute la largeur de la page */
+        text-align: center; /* Centre le texte horizontalement */
+        white-space: nowrap;
+        overflow: hidden; /* Cache le texte en dehors de l'écran */
+        animation: marquee 20s linear infinite; /* Animation de défilement */
+        font-size : 25px;
+        color: white; /* Couleur du texte */
+        padding: 10px; /* Ajout d'un peu d'espace autour du texte */
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%); /* Le texte commence à droite, hors de l'écran */
+        }
+        100% {
+            transform: translateX(-100%); /* Le texte défile vers la gauche, hors de l'écran */
+        }
+    }
+    
+    
+    
+    
+
     </style>
 </head>
 <body>
@@ -117,37 +202,94 @@
         <div class="light"></div>
     </div>
 
-    <!-- Image au centre -->
-  
-      <img src="centre.gif" alt="Image au centre" class="center-image">
-      
+    <!-- Texte défilant -->
+    
+        <div class="marquee">
+            🎄 Joyeux Noël à tous ! 🎅 Passez de belles fêtes et profitez de chaque instant ! 🎁 👨‍👩‍👧‍👦❄️⛄🎅🏿🤶🏾🔔
+        </div>
     
 
+    <a href="javascript:void(0);" onclick="afficherVideo();">
+        <img src="centre.gif" alt="Image au centre" class="center-image" id="image">
+    </a>
+
+    <!-- Vidéo cachée au début -->
+    <video id="video" width="640" height="360" controls style="display:none;">
+        <source src="Bébé Lilly - Petit Papa Noël (avec paroles).mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge la vidéo HTML5.
+    </video>
+    
+    
+    
     
 
     <!-- Père Noël statique -->
     <div class="conteneur">
         <img src="perenoel.png" alt="Père Noël" class="left-image">
-        <div class="tooltip">Appuyer sur la cloche</div>
+        <div class="tooltip">Appuyez sur la cloche !</div>
+        <div class="tooltap">Developper par : Harold DZUCHEU </div>
     </div>
+    
 
     <!-- Cerfs qui bougent -->
     <img src="traineaux_09.gif" alt="Cerf de Noël" class="deer" style="width: 150px;"> <!-- Taille agrandie -->
-
-
+    
     <!-- Neige qui tombe -->
-    <script>
-        const snowflakeCount = 100;
+<script>
+    // Constante pour le nombre de flocons de neige
+    const snowflakeCount = 100;
 
-        for (let i = 0; i < snowflakeCount; i++) {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
-            snowflake.style.width = snowflake.style.height = Math.random() * 5 + 5 + 'px';
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-            snowflake.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(snowflake);
-        }
-    </script>
+    // Création et animation des flocons de neige
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+
+        // Dimension aléatoire des flocons
+        const size = Math.random() * 5 + 5 + 'px';
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+
+        // Position aléatoire sur l'écran
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+
+        // Durée et délai d'animation aléatoires
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+
+        // Ajout des flocons au corps de la page
+        document.body.appendChild(snowflake);
+    }
+
+    // Fonction pour afficher une vidéo 
+    function afficherVideo() {
+        var image = document.getElementById('image');
+        var video = document.getElementById('video');
+        
+        // Cacher l'image
+        image.style.display = 'none';
+        
+        // Afficher la vidéo
+        video.style.display = 'block';
+        
+        // Lancer la lecture de la vidéo
+        video.play();
+    }
+
+
+// Détection de la fin de la vidéo
+const video = document.getElementById('video');
+
+
+if (video) {
+    video.addEventListener('ended', () => {
+        // Rediriger vers la page hr.html à la fin de la vidéo
+        window.location.href = 'hr.html';
+    });
+} else {
+    console.error("La vidéo est introuvable !");
+}
+
+</script>
+
 </body>
-</html> 
+</html>
