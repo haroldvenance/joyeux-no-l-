@@ -79,30 +79,30 @@
         
 
         /* Cerfs qui bougent */
-        .deer {
-            position: absolute;
-            bottom: 10px;
-            animation: moveDeer 10s linear infinite;
-        }
+    .deer {
+        position: absolute;
+        bottom: 0; /* Place les cerfs tout en bas de la page */
+        animation: moveDeer 10s linear infinite;
+    }
 
-        .deer:nth-child(1) {
-            left: -200px;
-            animation-delay: 0s;
-        }
+    .deer:nth-child(1) {
+        left: -200px;
+        animation-delay: 0s;
+    }
 
-        .deer:nth-child(2) {
-            left: -300px;
-            animation-delay: 2s;
-        }
+    .deer:nth-child(2) {
+        left: -400px;
+        animation-delay: 2s;
+    }
 
-        @keyframes moveDeer {
-            0% {
-                left: -150px;
-            }
-            100% {
-                left: 100vw;
-            }
+    @keyframes moveDeer {
+        0% {
+            left: -150px;
         }
+        100% {
+            left: 100vw;
+        }
+    }
 
         /* Image au centre */
         .center-image {
