@@ -109,6 +109,24 @@
                 left: 100vw;
             }
         }
+
+        /* Image au centre */
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+        }
+
+        /* Image à gauche */
+        .left-image {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 150px;
+        }
     </style>
 </head>
 <body>
@@ -122,6 +140,12 @@
         <div class="light"></div>
         <div class="light"></div>
     </div>
+
+    <!-- Image au centre -->
+    <img src="pngegg (1).png" alt="Image au centre" class="center-image">
+
+    <!-- Image à gauche -->
+    <img src="pngegg (2).png" alt="Image à gauche" class="left-image">
 
     <!-- Père Noël statique -->
     <img src="perenoel.png" alt="Père Noël" class="santa">
