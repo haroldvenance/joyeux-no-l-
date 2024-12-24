@@ -5,189 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyeux Noël</title>
     <style>
-        /* Style général */
-        body {
-            margin: 0;
-            background: #00264d;
-            color: white;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-            position: relative;
-            height: 100vh;
+    /* Style général */
+    body {
+        margin: 0;
+        background: #00264d;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    /* Neige qui tombe */
+    .snowflake {
+        position: absolute;
+        top: -10px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: fall 10s linear infinite, sway 3s ease-in-out infinite;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(0);
         }
-
-        h1 {
-            text-align: center;
-            padding-top: 20px;
+        100% {
+            transform: translateY(100vh);
         }
+    }
 
-        /* Neige qui tombe */
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: fall 10s linear infinite, sway 3s ease-in-out infinite;
+    @keyframes sway {
+        0%, 100% {
+            transform: translateX(0);
         }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
+        50% {
+            transform: translateX(20px);
         }
+    }
 
-        @keyframes sway {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(20px);
-            }
-        }
+    /* Guirlande lumineuse clignotante */
+    .lights {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        flex-wrap: wrap; /* Rend les lumières adaptables */
+    }
 
-        /* Guirlande lumineuse clignotante */
-        .lights {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+    .light {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 5px;
+        animation: blink 1.5s infinite;
+    }
 
-        .light {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            margin: 0 5px;
-            animation: blink 1.5s infinite;
-        }
+    .light:nth-child(1) { background: green; animation-delay: 0.2s; }
+    .light:nth-child(2) { background: yellow; animation-delay: 0.4s; }
+    .light:nth-child(3) { background: red; animation-delay: 0.6s; }
+    .light:nth-child(4) { background: green; animation-delay: 0.8s; }
+    .light:nth-child(5) { background: yellow; animation-delay: 1s; }
+    .light:nth-child(6) { background: red; animation-delay: 1.2s; }
 
-        .light:nth-child(1) { background: green; animation-delay: 0.2s; }
-        .light:nth-child(2) { background: yellow; animation-delay: 0.4s; }
-        .light:nth-child(3) { background: red; animation-delay: 0.6s; }
-        .light:nth-child(4) { background: green; animation-delay: 0.8s; }
-        .light:nth-child(5) { background: yellow; animation-delay: 1s; }
-        .light:nth-child(6) { background: red; animation-delay: 1.2s; }
+    @keyframes blink {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+    }
 
-        @keyframes blink {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
-        }
+    .deer {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 150px;
+    }
 
-        .deer {
-            position: absolute;
-            top: 5px; /* Place l'image en haut */
-            right: 10px; /* Place l'image à droite */
-            width: 150px; /* Taille agrandie */
-        }
+    /* Image à gauche */
+    .left-image {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        width: 150px;
+    }
 
-        /* Image à gauche */
-        .left-image {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-            width: 150px;
-        }
+    .tooltip {
+        position: absolute;
+        top: 45%;
+        left: 200px;
+        transform: translateY(-80%);
+        width: 150px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 2px 2px 8px white;
+    }
 
-        .tooltip {
-            position: absolute;
-            top: 45%;
-            left: 200px;
-            transform: translateY(-80%);
-            width: 150px;
-            background-color:white;
-            color: black;
-            text-align: center;
-            border-radius: 5px;
-            box-shadow: 2px 2px 8px white;
-        }
-         .tooltap {
-            position: absolute;
-            top: 10%;
-            left: 30px;
-            transform: translateY(-100%);
-            width: 300px;
-            background-color:white;
-            color: black;
-            text-align: center;
-            border-radius: 5px;
-            box-shadow: 2px 2px 8px white;
-            padding : 10px;
-            font-size : 17px;
-        }
+    .tooltap {
+        position: absolute;
+        top: 10%;
+        left: 30px;
+        transform: translateY(-100%);
+        width: 300px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 2px 2px 8px white;
+        padding: 10px;
+        font-size: 17px;
+    }
 
-        .center-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            cursor: pointer; 
-        }
+    .center-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        cursor: pointer;
+    }
 
-        /* Vidéo centrée et responsive */
-#video {
-    display: block;
-    margin: 20px auto; /* Centre la vidéo horizontalement */
-    max-width: 100%; /* Rend la vidéo responsive pour s'adapter à la taille de l'écran */
-    height: auto; /* Conserve le ratio d'aspect de la vidéo */
-    border: 2px solid #ccc; /* Ajoute une bordure esthétique */
-    border-radius: 10px; /* Coins arrondis pour un meilleur design */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ajoute une ombre pour un effet de profondeur */
-    background-color: black; /* Ajoute un fond noir autour de la vidéo */
-    padding: 5px; /* Ajoute un espace entre la vidéo et la bordure */
-    transition: transform 0.3s, box-shadow 0.3s; /* Animation sur le hover */
-}
+    /* Vidéo centrée et responsive */
+    #video {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        background-color: black;
+        padding: 5px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-/* Effet au survol (hover) */
-#video:hover {
-    transform: scale(1.05); /* Zoom léger sur la vidéo */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Accentuation de l'ombre */
-}
-/* Image de fin (masquée par défaut) */
-        #end-image {
-            display: none; /* Masquée au début */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999; /* S'affiche au-dessus de tout */
-            background: url('fin.jpg') no-repeat center center/cover; /* Image en plein écran */
-        }
+    /* Effet au survol (hover) */
+    #video:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
 
-      
+    /* Image de fin (masquée par défaut) */
+    #end-image {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('fin.jpg') no-repeat center center/cover;
+    }
 
-       .marquee {
-        position: fixed; /* Pour placer le texte au bas de la page */
-        bottom: 0; /* Aligne le texte en bas */
-        width: 100%; /* Occupe toute la largeur de la page */
-        text-align: center; /* Centre le texte horizontalement */
+    /* Texte défilant */
+    .marquee {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
         white-space: nowrap;
-        overflow: hidden; /* Cache le texte en dehors de l'écran */
-        animation: marquee 20s linear infinite; /* Animation de défilement */
-        font-size : 25px;
-        color: white; /* Couleur du texte */
-        padding: 10px; /* Ajout d'un peu d'espace autour du texte */
+        overflow: hidden;
+        animation: marquee 20s linear infinite;
+        font-size: 25px;
+        color: white;
+        padding: 10px;
     }
 
     @keyframes marquee {
         0% {
-            transform: translateX(100%); /* Le texte commence à droite, hors de l'écran */
+            transform: translateX(100%);
         }
         100% {
-            transform: translateX(-100%); /* Le texte défile vers la gauche, hors de l'écran */
+            transform: translateX(-100%);
         }
     }
-    
-    
-    
-    
 
-    </style>
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        .tooltap, .tooltip {
+            width: 90%;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .deer, .center-image, .left-image {
+            width: 100px;
+        }
+
+        h1 {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tooltap, .tooltip {
+            font-size: 12px;
+            padding: 8px;
+        }
+
+        .center-image, .left-image {
+            width: 80px;
+        }
+
+        h1 {
+            font-size: 16px;
+        }
+
+        .marquee {
+            font-size: 20px;
+        }
+    }
+</style>
+
 </head>
 <body>
     <h1>🎄 Joyeux Noël 🎅</h1>
