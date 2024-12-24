@@ -109,6 +109,29 @@
     }
 } 
 </style>
+</head>
+<body>
+    <h1>🎄 Joyeux Noël ! 🎅</h1>
+    <h2>Ajoutez votre nom, sentiment et endroit pour recevoir vos vœux personnalisés !</h2>
+    
+    <form id="nameForm">
+        <input type="text" id="firstName" placeholder="Prénom" required>
+        <input type="text" id="lastName" placeholder="Nom" required>
+        <input type="text" id="sentiment" placeholder="comment te sens-tu ?" required>
+        <input type="text" id="place" placeholder="T'as prévu quoi pour Noël ?" required>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <h2>Liste des participants :</h2>
+    <ul class="user-list" id="userList">
+        <!-- Les noms des utilisateurs apparaîtront ici -->
+    </ul>
+	<!-- Zone pour afficher le lien généré -->
+    <div id="generatedLink" class="generated-link">
+       <!-- Le lien généré s'affichera ici -->
+       <p id="generatedLinkText"></p>
+       <button id="copyButton">Copier le lien</button>
+     </div>
   <script>
 // Initialiser la liste des noms à partir du localStorage
 const userList = document.getElementById('userList');
