@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +19,6 @@
         h1 {
             text-align: center;
             padding-top: 20px;
-            position: absolute;
-            bottom: 20px; /* Le texte "Joyeux Noël" sera en bas */
-            width: 100%;
-            font-size: 2em;
         }
 
         /* Neige qui tombe */
@@ -80,23 +76,14 @@
             50% { opacity: 1; }
         }
 
-        /* Position de l'image Père Noël à gauche */
-        .left-image {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-            width: 150px;
-        }
         
-        /* Cerf animés */
-        .deer {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            width: 150px;
-        }
 
+        .deer {
+        position: absolute;
+        top: 5px; /* Place l'image en haut */
+        right: 10px; /* Place l'image à droite */
+        width: 150px; /* Taille agrandie */
+    }
         /* Image au centre */
         .center-image {
             position: absolute;
@@ -106,34 +93,19 @@
             width: 200px;
         }
 
-        /* Style pour la tooltip */
-        .tooltip {
+        /* Image à gauche */
+        .left-image {
             position: absolute;
-            top: -30px;
-            left: 10px;
-            background-color: red;
-            color: yellow;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 14px;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 150px;
         }
-
-        .conteneur:hover .tooltip {
-            opacity: 1;
-        }
+        
     </style>
 </head>
 <body>
-    <!-- Père Noël -->
-    <div class="conteneur">
-        <img src="perenoel.png" alt="Père Noël" class="left-image">
-        <div class="tooltip">Appuyer sur la cloche</div>
-    </div>
-
-    <!-- Cerf qui bouge -->
-    <img src="traineaux_09.gif" alt="Cerf de Noël" class="deer">
+    <h1>🎄 Joyeux Noël 🎅</h1>
 
     <!-- Guirlande lumineuse -->
     <div class="lights">
@@ -146,10 +118,22 @@
     </div>
 
     <!-- Image au centre -->
-    <img src="centre.gif" alt="Image au centre" class="center-image">
+  
+      <img src="centre.gif" alt="Image au centre" class="center-image">
+      
+    
 
-    <!-- Texte Joyeux Noël -->
-    <h1>🎄 Joyeux Noël 🎅</h1>
+    
+
+    <!-- Père Noël statique -->
+    <div class="conteneur">
+        <img src="perenoel.png" alt="Père Noël" class="left-image">
+        <div class="tooltip">Appuyer sur la cloche</div>
+    </div>
+
+    <!-- Cerfs qui bougent -->
+    <img src="traineaux_09.gif" alt="Cerf de Noël" class="deer" style="width: 150px;"> <!-- Taille agrandie -->
+
 
     <!-- Neige qui tombe -->
     <script>
@@ -166,4 +150,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
