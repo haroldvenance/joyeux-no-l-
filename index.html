@@ -5,223 +5,247 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyeux Noël</title>
     <style>
-    /* Style général */
-    body {
-        margin: 0;
-        background: #00264d;
-        color: white;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-        position: relative;
-        height: 100vh;
-    }
-
-    h1 {
-        text-align: center;
-        padding-top: 20px;
-    }
-
-    /* Neige qui tombe */
-    .snowflake {
-        position: absolute;
-        top: -10px;
-        background: white;
-        border-radius: 50%;
-        opacity: 0.8;
-        animation: fall 10s linear infinite, sway 3s ease-in-out infinite;
-    }
-
-    @keyframes fall {
-        0% {
-            transform: translateY(0);
+        /* Style général */
+        body {
+            margin: 0;
+            background: #00264d;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
         }
-        100% {
-            transform: translateY(100vh);
+
+        h1 {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 2rem;
         }
-    }
 
-    @keyframes sway {
-        0%, 100% {
-            transform: translateX(0);
+        /* Neige qui tombe */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall 10s linear infinite, sway 3s ease-in-out infinite;
         }
-        50% {
-            transform: translateX(20px);
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
         }
-    }
 
-    /* Guirlande lumineuse clignotante */
-    .lights {
-        display: flex;
-        justify-content: center;
-        margin: 20px 0;
-        flex-wrap: wrap; /* Rend les lumières adaptables */
-    }
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
 
-    .light {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin: 5px;
-        animation: blink 1.5s infinite;
-    }
+        /* Guirlande lumineuse clignotante */
+        .lights {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
 
-    .light:nth-child(1) { background: green; animation-delay: 0.2s; }
-    .light:nth-child(2) { background: yellow; animation-delay: 0.4s; }
-    .light:nth-child(3) { background: red; animation-delay: 0.6s; }
-    .light:nth-child(4) { background: green; animation-delay: 0.8s; }
-    .light:nth-child(5) { background: yellow; animation-delay: 1s; }
-    .light:nth-child(6) { background: red; animation-delay: 1.2s; }
+        .light {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 5px;
+            animation: blink 1.5s infinite;
+        }
 
-    @keyframes blink {
-        0%, 100% { opacity: 0.2; }
-        50% { opacity: 1; }
-    }
+        .light:nth-child(1) { background: green; animation-delay: 0.2s; }
+        .light:nth-child(2) { background: yellow; animation-delay: 0.4s; }
+        .light:nth-child(3) { background: red; animation-delay: 0.6s; }
+        .light:nth-child(4) { background: green; animation-delay: 0.8s; }
+        .light:nth-child(5) { background: yellow; animation-delay: 1s; }
+        .light:nth-child(6) { background: red; animation-delay: 1.2s; }
 
-    .deer {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        width: 150px;
-    }
+        @keyframes blink {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
 
-    /* Image à gauche */
+        /* Cerf de Noël */
+        .deer {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 150px;
+        }
+
+        /* Image au centre */
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            cursor: pointer;
+        }
+        /* Image à gauche (responsive) */
+.left-image {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 150px;
+    max-width: 90%; /* Adapte l'image à la taille de l'écran */
+}
+
+/* Vidéo centrée et responsive */
+#video {
+    display: block;
+    margin: 20px auto 40px; /* Ajouter un espace de 40px en bas de la vidéo */
+    max-width: 100%; /* La vidéo occupe tout l'espace disponible sans déborder */
+    max-height: 50vh; /* La hauteur maximale de la vidéo est 60% de la hauteur de la fenêtre */
+    height: auto; /* Conserve les proportions de la vidéo */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: black;
+    padding: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+#video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsivité pour les petits écrans */
+@media (max-width: 768px) {
     .left-image {
-        position: absolute;
-        top: 50%;
-        left: 20px;
-        transform: translateY(-50%);
-        width: 150px;
+        position: relative; /* Pour éviter qu'elle ne chevauche d'autres éléments */
+        margin: 20px auto; /* Centrer l'image horizontalement */
+        left: auto; /* Réinitialise la position à gauche */
+        top: auto; /* Réinitialise la position verticale */
+        transform: none; /* Annule la transformation */
+        width: 120px; /* Réduit la taille pour les petits écrans */
     }
 
-    .tooltip {
-        position: absolute;
-        top: 45%;
-        left: 200px;
-        transform: translateY(-80%);
-        width: 150px;
-        background-color: white;
-        color: black;
-        text-align: center;
-        border-radius: 5px;
-        box-shadow: 2px 2px 8px white;
-    }
-
-    .tooltap {
-        position: absolute;
-        top: 10%;
-        left: 30px;
-        transform: translateY(-100%);
-        width: 300px;
-        background-color: white;
-        color: black;
-        text-align: center;
-        border-radius: 5px;
-        box-shadow: 2px 2px 8px white;
-        padding: 10px;
-        font-size: 17px;
-    }
-
-    .center-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 200px;
-        cursor: pointer;
-    }
-
-    /* Vidéo centrée et responsive */
     #video {
-        display: block;
-        margin: 20px auto;
-        max-width: 100%;
-        height: auto;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        background-color: black;
-        padding: 5px;
-        transition: transform 0.3s, box-shadow 0.3s;
+        margin: 10px auto; /* Réduit la marge pour les petits écrans */
+        padding: 3px; /* Réduit l'espace autour de la vidéo */
+        border-width: 1px; /* Réduit l'épaisseur de la bordure */
+    }
+}
+
+/* Responsivité pour les très petits écrans */
+@media (max-width: 480px) {
+    .left-image {
+        width: 100px; /* Réduit encore la taille pour très petits écrans */
     }
 
-    /* Effet au survol (hover) */
-    #video:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    #video {
+        margin: 5px auto;
+        padding: 2px;
+        border-width: 1px;
     }
+}
 
-    /* Image de fin (masquée par défaut) */
-    #end-image {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        background: url('fin.jpg') no-repeat center center/cover;
-    }
-
-    /* Texte défilant */
-    .marquee {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: marquee 20s linear infinite;
-        font-size: 25px;
-        color: white;
-        padding: 10px;
-    }
-
-    @keyframes marquee {
-        0% {
-            transform: translateX(100%);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-
-    /* Responsiveness */
-    @media (max-width: 768px) {
-        .tooltap, .tooltip {
-            width: 90%;
-            font-size: 14px;
+        /* Texte défilant */
+        .marquee {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 20s linear infinite;
+            font-size: 25px;
+            color: white;
             padding: 10px;
         }
 
-        .deer, .center-image, .left-image {
-            width: 100px;
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
-        h1 {
-            font-size: 18px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .tooltap, .tooltip {
-            font-size: 12px;
-            padding: 8px;
-        }
-
-        .center-image, .left-image {
-            width: 80px;
+        /* Tooltip */
+        .tooltip {
+            background-color: white;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px white;
+            padding: 10px;
+            position: relative;
+            width: 150px;
+            margin: 0 auto;
         }
 
-        h1 {
-            font-size: 16px;
+        .tooltap {
+            background-color: white;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px white;
+            padding: 10px;
+            position: relative;
+            width: 300px;
+            margin: 10px auto;
         }
 
-        .marquee {
-            font-size: 20px;
-        }
-    }
-</style>
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .tooltip, .tooltap {
+                position: relative;
+                width: 90%;
+                margin: 10px auto;
+                font-size: 14px;
+                padding: 10px;
+            }
 
+            .lights + .tooltip {
+                margin-top: 10px;
+            }
+
+            .tooltip + .tooltap {
+                margin-top: 10px;
+            }
+
+            .deer, .center-image {
+                width: 100px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            .marquee {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tooltip, .tooltap {
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>🎄 Joyeux Noël 🎅</h1>
@@ -236,94 +260,57 @@
         <div class="light"></div>
     </div>
 
-    <!-- Texte défilant -->
-    
-        <div class="marquee">
-            🎄 Joyeux Noël à tous ! 🎅 Passez de belles fêtes et profitez de chaque instant ! 🎁 👨‍👩‍👧‍👦❄️⛄🎅🏿🤶🏾🔔
-        </div>
-    
+    <!-- Tooltip après guirlande -->
+    <div class="tooltip">Appuyez sur la cloche !</div>
+    <div class="tooltap">Développé par : Harold DZUCHEU</div>
+    <img src="perenoel.png" alt="Père Noël" class="left-image">
 
+    <!-- Image au centre -->
     <a href="javascript:void(0);" onclick="afficherVideo();">
         <img src="centre.gif" alt="Image au centre" class="center-image" id="image">
     </a>
 
-    <!-- Vidéo cachée au début -->
+    <!-- Vidéo -->
     <video id="video" width="640" height="360" controls style="display:none;">
         <source src="Bébé Lilly - Petit Papa Noël (avec paroles).mp4" type="video/mp4">
         Votre navigateur ne prend pas en charge la vidéo HTML5.
     </video>
-    
-    
-    
-    
 
-    <!-- Père Noël statique -->
-    <div class="conteneur">
-        <img src="perenoel.png" alt="Père Noël" class="left-image">
-        <div class="tooltip">Appuyez sur la cloche !</div>
-        <div class="tooltap">Developper par : Harold DZUCHEU </div>
+    <!-- Cerf -->
+    <img src="traineaux_09.gif" alt="Cerf de Noël" class="deer">
+
+    <!-- Texte défilant -->
+    <div class="marquee">
+        🎄 Joyeux Noël à tous ! 🎅 Passez de belles fêtes et profitez de chaque instant ! 🎁 👨‍👩‍👧‍👦❄️⛄🎅🏿🤶🏾🔔
     </div>
-    
 
-    <!-- Cerfs qui bougent -->
-    <img src="traineaux_09.gif" alt="Cerf de Noël" class="deer" style="width: 150px;"> <!-- Taille agrandie -->
-    
-    <!-- Neige qui tombe -->
-<script>
-    // Constante pour le nombre de flocons de neige
-    const snowflakeCount = 100;
+    <!-- Script -->
+    <script>
+        const snowflakeCount = 100;
+        for (let i = 0; i < snowflakeCount; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            const size = Math.random() * 5 + 5 + 'px';
+            snowflake.style.width = size;
+            snowflake.style.height = size;
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(snowflake);
+        }
 
-    // Création et animation des flocons de neige
-    for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
+        function afficherVideo() {
+            const image = document.getElementById('image');
+            const video = document.getElementById('video');
+            image.style.display = 'none';
+            video.style.display = 'block';
+            video.play();
+        }
 
-        // Dimension aléatoire des flocons
-        const size = Math.random() * 5 + 5 + 'px';
-        snowflake.style.width = size;
-        snowflake.style.height = size;
-
-        // Position aléatoire sur l'écran
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-
-        // Durée et délai d'animation aléatoires
-        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-
-        // Ajout des flocons au corps de la page
-        document.body.appendChild(snowflake);
-    }
-
-    // Fonction pour afficher une vidéo 
-    function afficherVideo() {
-        var image = document.getElementById('image');
-        var video = document.getElementById('video');
-        
-        // Cacher l'image
-        image.style.display = 'none';
-        
-        // Afficher la vidéo
-        video.style.display = 'block';
-        
-        // Lancer la lecture de la vidéo
-        video.play();
-    }
-
-
-// Détection de la fin de la vidéo
-const video = document.getElementById('video');
-
-
-if (video) {
-    video.addEventListener('ended', () => {
-        // Rediriger vers la page hr.html à la fin de la vidéo
-        window.location.href = 'hr.html';
-    });
-} else {
-    console.error("La vidéo est introuvable !");
-}
-
-</script>
-
+        const video = document.getElementById('video');
+        video.addEventListener('ended', () => {
+            window.location.href = 'hr.html';
+        });
+    </script>
 </body>
 </html>
