@@ -55,11 +55,40 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
+        .chariot {
+            position: absolute;
+            bottom: 50px;
+            left: -300px;
+            display: flex;
+            align-items: center;
+            animation: moveChariot 15s linear infinite;
+        }
+
+        .chariot img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        @keyframes moveChariot {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(110vw);
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Joyeux Noël 🎄</h1>
     <img src="perenoel.png" alt="Père Noël" class="santa">
+
+    <div class="chariot">
+        <img src="licorne1.png" alt="Licorne 1">
+        <img src="licorne2.png" alt="Licorne 2">
+        <img src="chariot.png" alt="Chariot">
+    </div>
 
     <script>
         // Générer des flocons de neige
@@ -77,5 +106,6 @@
     </script>
 </body>
 </html>
+
 
 
