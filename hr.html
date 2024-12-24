@@ -195,20 +195,27 @@ form.addEventListener('submit', function(event) {
         generatedLinkElement.innerHTML = `${personalizedMessage} <a href="${baseUrl}" target="_blank">${baseUrl}</a>`;
 
         // Afficher le bouton de copie
-        const copyButton = document.getElementById('copyButton');
-        copyButton.style.display = 'inline-block'; // Afficher le bouton de copie
-        copyButton.addEventListener('click', function() {
-            // Copier tout le message dans le presse-papiers
-            navigator.clipboard.writeText(fullMessage).then(function() {
-                // Modifier le texte du bouton et sa couleur
-                copyButton.textContent = 'Copié !'; // Changer le texte du bouton
-                copyButton.style.backgroundColor = '#28a745'; // Vert pour indiquer que c'est copié
-                copyButton.style.cursor = 'default'; // Désactiver le curseur en main
-                copyButton.disabled = true; // Désactiver le bouton pour éviter de cliquer à nouveau
-            }).catch(function(error) {
-                console.error('Échec de la copie : ', error);
-            });
-        });
+const copyButton = document.getElementById('copyButton');
+copyButton.style.display = 'inline-block'; // Afficher le bouton de copie
+copyButton.addEventListener('click', function() {
+    // Copier tout le message dans le presse-papiers
+    navigator.clipboard.writeText(fullMessage).then(function() {
+        // Modifier le texte du bouton et sa couleur pour indiquer la copie réussie
+        copyButton.textContent = 'Copié !'; // Changer le texte du bouton
+        copyButton.style.backgroundColor = '#28a745'; // Vert pour indiquer que c'est copié
+        copyButton.style.cursor = 'default'; // Désactiver le curseur en main
+
+        // Réinitialiser le bouton après 2 secondes
+        setTimeout(function() {
+            copyButton.textContent = 'Copier'; // Texte initial
+            copyButton.style.backgroundColor = ''; // Couleur par défaut
+            copyButton.style.cursor = 'pointer'; // Rétablir le curseur
+        }, 2000); // 2 secondes
+    }).catch(function(error) {
+        console.error('Échec de la copie : ', error);
+    });
+});
+
     }
 });
 </script>
