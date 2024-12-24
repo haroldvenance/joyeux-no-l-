@@ -76,14 +76,14 @@
             50% { opacity: 1; }
         }
 
-        
-
+        /* Cerfs statiques en haut à droite */
         .deer {
-        position: absolute;
-        top: 5px; /* Place l'image en haut */
-        right: 10px; /* Place l'image à droite */
-        width: 150px; /* Taille agrandie */
-    }
+            position: absolute;
+            top: 5px; /* Place l'image en haut */
+            right: 10px; /* Place l'image à droite */
+            width: 150px; /* Taille agrandie */
+        }
+
         /* Image au centre */
         .center-image {
             position: absolute;
@@ -101,43 +101,44 @@
             transform: translateY(-50%);
             width: 150px;
         }
+
         /* Style pour l'infobulle personnalisée */
-    .deer-container {
-        position: center;
-        display: inline-block;
-    }
+        .deer-container {
+            position: relative; /* Correcte la position pour l'infobulle */
+            display: inline-block;
+        }
 
-    .deer-container .tooltip {
-        visibility: hidden;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 5px;
-        padding: 8px;
-        position: absolute;
-        top: 100%; /* Positionne sous l'image */
-        right: 0;
-        white-space: nowrap;
-        z-index: 10;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
+        .deer-container .tooltip {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 8px;
+            position: absolute;
+            top: 100%; /* Positionne sous l'image */
+            right: 0;
+            white-space: nowrap;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-    .deer-container:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
-    }
+        .deer-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
 
-    /* Petite flèche sous l'infobulle */
-    .deer-container .tooltip::after {
-        content: '';
-        position: absolute;
-        top: -5px;
-        right: 10px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent #333 transparent;
-    }
+        /* Petite flèche sous l'infobulle */
+        .deer-container .tooltip::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent;
+        }
     </style>
 </head>
 <body>
@@ -153,20 +154,17 @@
         <div class="light"></div>
     </div>
 
-    <!-- Image au centre -->
+    <!-- Image au centre avec l'infobulle -->
     <div class="deer-container">
-      <img src="centre.gif" alt="Image au centre" class="center-image">
-      <div class="tooltip">Appuyer sur la cloche</div>
+        <img src="centre.gif" alt="Image au centre" class="center-image">
+        <div class="tooltip">Appuyer sur la cloche</div>
     </div>
-
-    
 
     <!-- Père Noël statique -->
     <img src="perenoel.png" alt="Père Noël" class="left-image">
 
     <!-- Cerfs qui bougent -->
     <img src="traineaux_09.gif" alt="Cerf de Noël" class="deer" style="width: 150px;"> <!-- Taille agrandie -->
-
 
     <!-- Neige qui tombe -->
     <script>
@@ -184,3 +182,4 @@
     </script>
 </body>
 </html>
+
