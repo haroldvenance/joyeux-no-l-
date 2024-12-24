@@ -13,6 +13,10 @@
             overflow: hidden;
             position: relative;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .snowflake {
@@ -41,25 +45,21 @@
                 transform: translateX(20px);
             }
         }
-         .santa {
-        position: absolute;
-        bottom: 50px;
-        animation: moveSanta 10s linear infinite;
-    }
 
-    @keyframes moveSanta {
-        0% {
-            left: -150px;
+        .santa {
+            position: relative;
+            width: 150px;
         }
-        100% {
-            left: 100vw;
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
         }
-    }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; padding-top: 30px;">Joyeux Noël 🎄</h1>
-    <img src="perenoel.png" alt="Père Noël" class="santa" style="width: 100px;">
+    <h1>Joyeux Noël 🎄</h1>
+    <img src="perenoel.png" alt="Père Noël" class="santa">
 
     <script>
         // Générer des flocons de neige
@@ -77,4 +77,5 @@
     </script>
 </body>
 </html>
+
 
