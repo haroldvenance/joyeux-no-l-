@@ -78,28 +78,12 @@
 
         
 
-        /* Cerfs qui bougent */
-    .deer {
+        .deer {
         position: absolute;
-        bottom: 5; /* Place les cerfs tout en bas de la page */
-        animation: moveDeer 10s linear infinite;
+        top: 0; /* Place l'image en haut */
+        right: 0; /* Place l'image à droite */
+        width: 150px; /* Taille agrandie */
     }
-
-    .deer:nth-child(1) {
-        left: -200px;
-        animation-delay: 0s;
-    }
-
-    
-    @keyframes moveDeer {
-        0% {
-            left: -150px;
-        }
-        100% {
-            left: 100vw;
-        }
-    }
-
         /* Image au centre */
         .center-image {
             position: absolute;
