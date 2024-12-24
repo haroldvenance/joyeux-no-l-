@@ -101,43 +101,7 @@
             transform: translateY(-50%);
             width: 150px;
         }
-        /* Style pour l'infobulle personnalisée */
-    .deer-container {
-        position: center;
-        display: inline-block;
-    }
-
-    .deer-container .tooltip {
-        visibility: hidden;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 5px;
-        padding: 8px;
-        position: absolute;
-        top: 100%; /* Positionne sous l'image */
-        right: 0;
-        white-space: nowrap;
-        z-index: 10;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .deer-container:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    /* Petite flèche sous l'infobulle */
-    .deer-container .tooltip::after {
-        content: '';
-        position: absolute;
-        top: -5px;
-        right: 10px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent #333 transparent;
-    }
+        
     </style>
 </head>
 <body>
